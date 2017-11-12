@@ -21,7 +21,7 @@ addpath('multigs');
 %% Global options
 % 0 - Bilinear interpolation, implementation by MATLAB，slower but better
 % 1 - Nearest neighbor interpolation,implementation by C++, Faster but worse
-fast_stitch = 1;    
+fast_stitch = 0;    
 img_n = 2;  % only support two image stitching
 in_name = cell(img_n,1);
 in_name{1} = 'images\images\P1010517.JPG';
@@ -56,8 +56,8 @@ img2 = imresize(img2,size(img1,1)/size(img2,1));
 
 figure(4),
 imshow(img1,[]);
-hold on;
 pause(0.3);
+figure(5),
 imshow(img2,[]);
 pause(0.3);
 
@@ -232,7 +232,7 @@ end
 fprintf('done (%fs)\n',toc);
 
 %% Show mesh warp
-if 1
+if 0
     mesh_warp(size(img1,2), size(img1,1), Ht, Hr);
 end
 
