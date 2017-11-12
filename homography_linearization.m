@@ -9,10 +9,8 @@ alpha = alpha./sum(alpha);
 H_output = zeros(3,3);
 
 for i = 1:size(anchor_points,1)  
-    % 依次在每个锚点展开
     A = taylor_series( H, anchor_points(i,:));
     
-    % 加权平均
     H_output = H_output + alpha(i).*A;
 end
 
