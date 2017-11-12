@@ -104,8 +104,8 @@ con = sum(res<=thr_g);
 inliers = find(res(:,maxinx)<=thr_g);
 
 %% Global homography (H) again.
-[ Hl,A,D1,D2 ] = feval(fitfn,data_norm(:,inliers));% 输入评估输出
-Hg = T2\(reshape(Hl,3,3)*T1);% H去归一化
+[ Hl,A,D1,D2 ] = feval(fitfn,data_norm(:,inliers));
+Hg = T2\(reshape(Hl,3,3)*T1);
 Hg = Hg / Hg(3,3)
 
 %% Compute Global similarity
@@ -158,7 +158,7 @@ figure(2),imshow(linear_hom);
 title('Image Stitching with global homography');
 hold on;
 pause(0.3);
-plot(anchor_points(:,1),anchor_points(:,2)+ off(2),'go','LineWidth',2);
+plot(anchor_points(:,1)+1,anchor_points(:,2)+ off(2),'go','LineWidth',2);
 pause(0.3);
 
 %% Compute weight for Integration
@@ -182,13 +182,11 @@ K_1(2) = k * K_1(1) + b;
 K_2(2) = k * K_2(1) + b;
 
 % Image keypoints coordinates
-% 特征点的真实坐标在图1中
 Kp = [data_orig(1,inliers)' data_orig(2,inliers)'];
 
 [ X,Y ] = meshgrid(linspace(1,cw,C1),linspace(1,ch,C2));
 
 % Mesh (cells) vertices' coordinates.
-% 全景图的真实坐标
 Mv = [X(:)-off(1), Y(:)-off(2)];
 
 % Perform Moving DLT
@@ -197,8 +195,6 @@ Ht = zeros(size(Mv,1),9);
 Hr = zeros(size(Mv,1),9);
 
 %% Moving DLT and Similarly Extrapolate (projective).
-% 重叠区域：局部单应性和全局相似变换平滑过渡
-% 非重叠区域：线性化局部单应性(仿射)和全局相似变换平滑过渡
 
 for i = 1:size(Mv,1)
     % Obtain kernel: Gaussian weighting
@@ -218,7 +214,7 @@ for i = 1:size(Mv,1)
     [c, d] = compute_weight(P, K_1, K_2);
     
     % Homography linearization in the non-overlapping region
-    if Mv(i,1) >= size(img1,2)
+    if Mv(i,1) >= size(img1,2) || Mv(i,2) >= size(img1,1) || Mv(i,1) <= 0 || Mv(i,2) <= 0
         Hl_linear = homography_linearization(Hl, Mv(i,:), anchor_points);
         Hl = c.*Hl_linear + d.*Hl;
     end
