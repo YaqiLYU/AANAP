@@ -268,7 +268,7 @@ else
     hold on;
     pause(0.3)
     
-    pano = image_blending_linear(warped_img1,warped_img2, [off(2)+1;off(2)+size(img1,1)-1;size(img1,2)]);
+    pano = image_blending_linear(warped_img1,warped_img2);
     imshow(pano);
     title('Adaptive As-Natural-As-Possible Image Stitching');
 end
