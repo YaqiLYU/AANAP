@@ -152,7 +152,7 @@ warped_img1 = uint8(zeros(ch,cw,3));
 warped_img1(off(2):(off(2)+size(img1,1)-1),off(1):(off(1)+size(img1,2)-1),:) = img1;
 warped_img2 = imagewarping(double(ch),double(cw),double(img2),Hg,double(off));
 warped_img2 = reshape(uint8(warped_img2),size(warped_img2,1),size(warped_img2,2)/3,3);
-linear_hom = imageblending(warped_img1,warped_img2);
+linear_hom = image_blending_average(warped_img1,warped_img2);
 
 figure(2),imshow(linear_hom);
 title('Image Stitching with global homography');
