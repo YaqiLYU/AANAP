@@ -138,11 +138,11 @@ hy = linspace(1,size(img1,1),anchor_num);
 
 for i = 1:anchor_num
     anchor_points = [anchor_points;
-                     0, round(hy(i))];    
+                     1, round(hy(i))];    
     anchor_points = [anchor_points;
                      size(img1,2), round(hy(i))];   
     anchor_points = [anchor_points;
-                     round(hx(i)), 0];    
+                     round(hx(i)), 1];    
     anchor_points = [anchor_points;
                      round(hx(i)), size(img1,1)];
 end
@@ -158,7 +158,7 @@ figure(2),imshow(linear_hom);
 title('Image Stitching with global homography');
 hold on;
 pause(0.3);
-plot(anchor_points(:,1)+1,anchor_points(:,2)+ off(2),'go','LineWidth',2);
+plot(anchor_points(:,1),anchor_points(:,2)+ off(2),'go','LineWidth',2);
 pause(0.3);
 
 %% Compute weight for Integration
