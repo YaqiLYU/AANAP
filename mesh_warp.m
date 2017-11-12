@@ -9,6 +9,7 @@ y_list = linspace(1, imgh, 100);
 
 z = zeros(size(out_x))+0.2;
 figure(10),mesh(out_y, out_x, z);view(2);axis equal;
+pause(0.3);
 
 % mesh by meshgrid
 x_list = linspace(1, imgw, 100);
@@ -19,5 +20,6 @@ y_list = linspace(1, imgh, 100);
     
 z = zeros(size(out_x))+0.2;
 figure(11),mesh(out_x, -out_y, z);view(2);axis equal;
+pause(0.3);
 
 end
