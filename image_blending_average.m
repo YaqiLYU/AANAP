@@ -1,5 +1,4 @@
 function [output_canvas] = image_blending_average(warped_img1,warped_img2)
-    % 平均融合
     w1 = imfill(im2bw(uint8(warped_img1), 0),'holes');
     w2 = imfill(im2bw(uint8(warped_img2), 0),'holes');
     
