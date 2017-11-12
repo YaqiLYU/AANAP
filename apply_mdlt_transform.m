@@ -10,7 +10,6 @@ for i = 1:100
         T = reshape(Hmdlt(grididx,:),3,3);
         T = inv(T);
         
-        % 补偿网格平移变换
         in_x = x(j,i);
         in_y = y(j,i);
         
