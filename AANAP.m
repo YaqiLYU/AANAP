@@ -235,6 +235,11 @@ for i = 1:size(Mv,1)
 end
 fprintf('done (%fs)\n',toc);
 
+%% Show mesh warp
+if 1
+    mesh_warp(size(img1,2), size(img1,1), Ht, Hr);
+end
+
 %% Warping images with Moving DLT
 if fast_stitch
     [warped_img1] = imagewarping(double(ch),double(cw),double(img1),Hr,double(off),X(1,:),Y(:,1)');
