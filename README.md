@@ -3,6 +3,7 @@ An implementation of AANAP in CVPR 2015 paper.
 by YaqiLYU
 
 https://www.zhihu.com/question/34535199/answer/135169187
+
 _________________________________________________________________________
 
 Lin C C, Pankanti S U, Ramamurthy K N, et al.
@@ -11,7 +12,8 @@ Adaptive as-natural-as-possible image stitching [C]
 IEEE, 2015: 1155-1163.
 
 ___________________________________________________________________________
-TO START
+
+HOW TO START
 
 1. Down APAP code from http://cs.adelaide.edu.au/~tjchin/apap/ 
     PLEASE DOWNLOAD Source codes [MDLT code]
@@ -29,6 +31,7 @@ For commercial purposes, please contact the author.
 BTW, Please forgive my poor English!
 
 ____________________________________________________________________________
+
 这是CVPR 2015的图像拼接论文AANAP的MATLAB实现，基于APAP代码，论文：
 
 Lin C C, Pankanti S U, Ramamurthy K N, et al. Adaptive as-natural-as-possible image stitching [C]//
@@ -39,7 +42,9 @@ Lin C C, Pankanti S U, Ramamurthy K N, et al. Adaptive as-natural-as-possible im
 by YaqiLYU
 
 我在这里：https://www.zhihu.com/question/34535199/answer/135169187
+
 ——————————————————————————————————————————————————————————————————————————
+
 HOW TO START:
 1. 下载APAP: 在https://cs.adelaide.edu.au/~tjchin/apap/ 下载APAP的MATLAB代码，解压后得到./mdlt.
     我用的是Source codes [MDLT code]，也就是说，仅支持两图拼接，多图拼接请自行修改，非常简单！
