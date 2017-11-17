@@ -13,7 +13,7 @@
 
 close all
 
-run('vlfeat-0.9.20/toolbox/vl_setup');
+run('vlfeat-0.9.14/toolbox/vl_setup');
 addpath('modelspecific');
 addpath('mexfiles');
 addpath('multigs');
